@@ -21,3 +21,5 @@
     - python manage.py makemigrations
     - python manage.py migrate
     - python manage.py loaddata questions.json
+
+- Добавить вопросы можно через json или админку django. На главной странице указано актуальное число вопросов в БД
