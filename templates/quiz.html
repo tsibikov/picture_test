@@ -1,28 +1,35 @@
 {% extends "includes/main.html" %}
 {% block title %}
-    Тест
+    Тестирование
 {% endblock %}
 {% load static %}
 {% block content %}
-<div class="container">
-    {% if question_id == 'finish' %}
-    <form action={% url 'result' quiz_id prew_question_id %} method="GET">
-        <div class="row">
-            {% include 'includes/question.html' %}
-        </div>    
-        <div class="col-10"><button class="btn btn-primary btn-block" style="margin-bottom: 10px;  background-color:#3d7daa;" type="submit" >закончить тест</button></div> 
-        </form>
-   
-    {% else %}
-    <form action={% url 'quiz' quiz_id question_id prew_question_id %} method="GET">
-    <div class="row">
-        {% include 'includes/question.html' %}
-    </div>    
-    <div class="col-10"><button class="btn btn-primary btn-block" style="margin-bottom: 10px;  background-color:#3d7daa;" type="submit" >Следующий вопрос</button></div> 
-    </form>
-        {% endif %}
- 
+    <div class="container">
+        {% if question_id == 'finish' %}
+            <form action={% url 'result' quiz_id prew_question_id %} method="GET">
+                <div class="row" style="margin-bottom: 30px;">
+                    {% include 'includes/question.html' %}
+                </div>  
 
-</div>
+                <div class="col" style="text-align: left">
+                    <button class="btn btn-primary" style="background-color:#3d7daa;" type="submit">
+                        Посмотреть результаты
+                    </button>
+                </div> 
+            </form>
+    
+        {% else %}
+            <form action={% url 'quiz' quiz_id question_id prew_question_id %} method="GET">
+                <div class="row" style="margin-bottom: 30px;">
+                    {% include 'includes/question.html' %}
+                </div>    
+                <div class="col" style="text-align: left">
+                    <button class="btn btn-primary" style="background-color:#3d7daa;" type="submit">
+                        Следующий вопрос
+                    </button>
+                </div> 
+            </form>
+        {% endif %}
+    </div>
 
 {% endblock %}

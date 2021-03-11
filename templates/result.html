@@ -5,8 +5,30 @@
 {% load static %}
 {% block content %}
 <div class="container">
-
-    {{result_scores}}
+    <div class="row">
+        <div class="col" style="text-align: center;">
+            <h1>
+                Правильные ответы - {{result_scores}} процентов
+            </h1>
+            {% if result_scores == 100 %}
+                <h1>
+                    Вы лучший!
+                </h1>
+            {% elif result_scores > 80 %}
+                <h1>
+                    Вы почти лучший!
+                </h1>   
+            {% elif result_scores > 30 %}
+                <h1>
+                    Бывает и лучше!
+                </h1> 
+            {% else %}    
+                <h1>
+                    Вы нуб!
+                </h1> 
+            {% endif %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}

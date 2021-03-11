@@ -6,12 +6,14 @@ def index(request):
     """ Главная страница """
     question_id = Question.objects.all().first().id
     questions = Question.objects.all()
-    quiz = Quiz.objects.create(questions_count=len(questions),
+    questions_count = len(questions)
+    quiz = Quiz.objects.create(questions_count=questions_count,
                                score=0)
     prew_question_id = 0
     return render(request, 'index.html',{'quiz_id': quiz.id, 
                                         'question_id': question_id,
-                                        'prew_question_id': prew_question_id}) 
+                                        'prew_question_id': prew_question_id,
+                                        'questions_count': questions_count}) 
 
 
 def quiz(request, quiz_id, question_id, prew_question_id):

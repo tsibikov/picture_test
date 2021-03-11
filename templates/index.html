@@ -6,19 +6,19 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col" style="text-align: center;">
-            <h1>"Тест из N вопросов"</h1> 
+        <div class="col" style="text-align: center; margin-bottom: 200px">
+            <h1>"Тест из {{ questions_count }} вопросов"</h1> 
         </div>       
     </div>
+
     <div class="row">
-        Вам предстоит ответить на N вопросов, для начала введите ваше имя и нажмите "Начать тестирование". 
+        <div class="col" style="text-align: center;">
+            <a href="{% url 'quiz' quiz_id question_id prew_question_id %}" style="color: rgb(90, 89, 89); ">
+                <img src="{% static '/start.png' %}" class="img" alt="start" style="width: 200px; height: 200px;">
+            </a>  
+        </div>
     </div>
-    <div class="row">
-        <a class="btn btn-primary btn-block" 
-           href="{% url 'quiz' quiz_id question_id prew_question_id %}" role="button" style="background-color:#3d7daa; color: white;">
-            Начать тестирование 
-        </a>
-    </div>
+
 </div>
 
 {% endblock %}
