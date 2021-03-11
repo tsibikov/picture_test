@@ -8,10 +8,10 @@
 от 3 до 8 - "бывает и лучше"
 до 3 - "вы нуб"
 
-##Развертываение:
+## Развертываение:
 
--Скопировать репозиторий
--Создать файл .env по образцу
+- Скопировать репозиторий
+- Создать файл .env по образцу
     SECRET_KEY=
     DB_ENGINE=django.db.backends.postgresql_psycopg2
     POSTGRES_DB=
@@ -20,9 +20,9 @@
     DB_HOST=
     DB_PORT=5432
     SERVER_NAMES=*
--docker-compose build
--docker-compose up -d
--docker-compose exec web bash
+- docker-compose build
+- docker-compose up -d
+- docker-compose exec web bash
     - python manage.py makemigrations
     - python manage.py migrate
     - python manage.py loaddata questions.json
